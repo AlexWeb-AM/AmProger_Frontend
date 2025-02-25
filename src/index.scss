@@ -393,7 +393,7 @@ a {
       position: absolute;
       width: 150px;
       height: 40px;
-      background-color:rgb(11, 11, 11);
+      background-color:rgb(80, 80, 80);
       top: 0;
       right: 0;
       display: flex;
@@ -536,4 +536,14 @@ a {
     }
   
   }
+}
+
+.message_div {
+  width: 200px;
+  height:400px;
+  background-color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

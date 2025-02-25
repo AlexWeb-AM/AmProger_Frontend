@@ -7,7 +7,7 @@ interface User {
   id: string;
   name: string;
   email: string;
-  routeId: string; 
+  routeId:string
 }
 
 interface UserState {

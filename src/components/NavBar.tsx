@@ -1,42 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import  { useState, useEffect } from 'react';
 import { FaTelegram } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
-import { Link, useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const NavBar = () => {
-  const location = useLocation();
-  const [activeTab, setActiveTab] = useState<string>('posts'); 
+  const [divMessage, setDivMessage] = useState<boolean>(false);
 
   useEffect(() => {
-    switch (true) {
-      case location.pathname === '/':
-        setActiveTab('posts');
-        break;
-      case location.pathname.endsWith('/posts'):
-        setActiveTab('posts');
-        break;
-      case location.pathname === '/news':
-        setActiveTab('news');
-        break;
-      case location.pathname === '/quiz':
-        setActiveTab('quiz');
-        break;
-      case location.pathname === '/companies':
-        setActiveTab('companies');
-        break;
-      case location.pathname === '/events':
-        setActiveTab('events');
-        break;
-      case location.pathname === '/languages':
-        setActiveTab('languages');
-        break;
-      case location.pathname === '/themes':
-        setActiveTab('themes');
-        break;
-      default:
-        setActiveTab('');
+    if (divMessage) {
+      toast.info('Message Displayed!', { position: 'top-right' });
+      setDivMessage(false); 
     }
-  }, [location]);
+  }, [divMessage]);
 
   return (
     <div className="nav_bar">
@@ -44,50 +21,36 @@ export const NavBar = () => {
         <ul>
           <li>
             <Link to='/'>
-            <button className={activeTab === 'posts' ? 'bg' : ''}>
-              <img src="../../public/images/posts_icon.svg" alt="Posts Icon" /> Պոստեր
-            </button>
+              <button className='bg'>
+                <img src="../../public/images/posts_icon.svg" alt="Posts Icon" /> Պոստեր
+              </button>
             </Link>
           </li>
           <li>
-          <Link to='/news'>
-            <button className={activeTab === 'news' ? 'bg' : ''}>
+            <button onClick={() => { setDivMessage(true); }}>
               <img src="../../public/images/news_icon.svg" alt="News Icon" /> Նորություններ
             </button>
-            </Link>
           </li>
           <li>
-          <Link to='/quiz'>
-            <button className={activeTab === 'quiz' ? 'bg' : ''}>
+            <button onClick={() => { setDivMessage(true); }}>
               <img src="../../public/images/mozg.svg" alt="Quiz Icon" /> Վիկտորինաներ
             </button>
-            </Link>
           </li>
           <li>
-          <Link to='/companies'>
-            <button className={activeTab === 'companies' ? 'bg' : ''}>
+            <button onClick={() => { setDivMessage(true); }}>
               <img src="../../public/images/compaines.svg" alt="Companies Icon" /> Ընկերություններ
             </button>
-            </Link>
           </li>
           <li>
-          <Link to='/events'>
-            <button className={activeTab === 'events' ? 'bg' : ''}>
+            <button onClick={() => { setDivMessage(true); }}>
               <img src="../../public/images/calendar.svg" alt="Events Icon" /> Իրադարձություններ
             </button>
-            </Link>
           </li>
-          <li>
-          </li>
-          
+          <li></li>
         </ul>
       </div>
-      <div className="bottom_div">
-        <div>
-          <FaTelegram className='icon' />
-          <FaXTwitter className='icon'/>
-        </div>
-      </div>
+
+      <ToastContainer theme='dark' />
     </div>
   );
 };

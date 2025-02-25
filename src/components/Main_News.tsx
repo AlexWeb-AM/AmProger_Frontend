@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { News_Block } from './News_Block'
 import { getProgrammingNews } from '../api/newsAPI'
-import { Link } from 'react-router';
 
 interface NewsArticle {
   title: string;

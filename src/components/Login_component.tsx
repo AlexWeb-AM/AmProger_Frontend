@@ -23,6 +23,7 @@ export const LoginComponent = () => {
     try {
       const response = await dispatch(loginUser({ email, password })).unwrap();
       toast.success("Login successful");
+      localStorage.setItem("userEmail", email);
       navigate(`/user/${response.user.routeId}/posts`);
     } catch (err: any) {
       toast.error(err?.message || "Login failed");
