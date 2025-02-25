@@ -1,0 +1,539 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: white;
+}
+
+body {
+  background-color: #0d0d0d;
+  font-family: "Noto Sans Armenian", sans-serif;
+  color: white;
+}
+
+.container {
+  margin: 0 10px;
+}
+
+.header {
+  background-color: #0a0a0a;
+  width: 100%;
+  height: 90px;
+  position: fixed;
+  border-bottom: 1px solid rgb(73, 73, 73);
+  z-index: 1100;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    height: 90px;
+    align-items: center;
+  }
+  .logo_div {
+    width: auto;
+    height: auto;
+    img {
+      width: 220px;
+      margin-top: 4px;
+    }
+  }
+  .search_div {
+    width: 100%;
+    margin-left: 20px;
+    input {
+      width: 400px;
+      height: 45px;
+      padding-left: 15px;
+      background-color: #1c1c1c;
+      border: none;
+      color: white;
+      background-image: url("../public/images/search.svg"); // путь к иконке
+      background-repeat: no-repeat;
+      background-size: 20px 20px;
+      background-position: 385px center;
+      transition: border 400ms ease;
+    }
+    input:focus-visible {
+      outline: none;
+    }
+  }
+  .buttons_div {
+    display: flex;
+    gap: 10px;
+    button {
+      width: 100px;
+      height: 45px;
+      font-size: 15px;
+      cursor: pointer;
+      color: white;
+      opacity: 0.6;
+      transition: all 500ms ease;
+    }
+    .button1 {
+      background: none;
+      border: none;
+    }
+    .button2 {
+      background-color: #000000;
+      border: none;
+    }
+
+    button:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.main_div {
+  width: 100%;
+  height: 100%;
+}
+
+.nav_bar {
+  position: fixed;
+  top: 90px;
+  width: 300px;
+  border-right: 1px solid rgb(73, 73, 73);
+  height:100vh;
+  background-color: #0a0a0a;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1000;
+
+  .nav {
+    ul {
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      list-style: none;
+      button {
+        width: 100%;
+        height: 55px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        text-align: left;
+        color: #b9b9b9;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding-left: 10px;
+      }
+      button:not(.bg):hover {
+        background-color: #171717;
+      }
+      .bg {
+        background-color: #171717;
+      }
+    }
+  }
+  .bottom_div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom:100px;
+    color: #c5c5c5;
+    div {
+      display: flex;
+      gap: 10px;
+      .icon {
+        font-size: 20px;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: opacity 100ms ease;
+      }
+      .icon:hover {
+        opacity: 1;
+      }
+    }
+    p {
+      font-size: 13px;
+      margin-top: 5px;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.sign_up_page {
+  display: flex;
+  div {
+    width: 50%;
+    height: 100vh;
+  }
+  .block1 {
+    background-color: #060606;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    img {
+      width: 120px;
+    }
+    h1 {
+      font-size: 35px;
+    }
+  }
+  .block2 {
+    background-color: #0d0d0d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .login_div {
+      height:400px;
+    }
+    .sign_up_div {
+      height: 500px;
+    }
+    .sign_up_div,.login_div {
+      width: 370px;
+      background-color: #060606;
+      display: flex;
+      flex-direction: column;
+      h2 {
+        margin-top: 40px;
+        margin-left: 40px;
+      }
+      form {
+        width: 100%;
+        padding-top: 30px;
+        padding-left: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;        
+        input {
+          width: 280px;
+          height: 50px;
+          border: none;
+          background-color: #000000;
+          padding-left: 15px;
+          color: white;
+          font-weight: 500;
+        }
+        input:focus-visible {
+          outline: none;
+        }
+      }
+   
+        button {
+          width: 200px;
+          height: 45px;
+          color: white;
+          font-size: 17px;
+          opacity: 0.7;
+          cursor: pointer;
+          margin-top: 10px;
+          background-color: #0F0F0F;
+          border: none;
+          transition: opacity 300ms ease;
+        }
+        button:hover {
+          opacity: 1;
+        }
+        h4 {
+          margin-left: 42px;
+          color: #787878;
+          font-weight: 400;
+          margin-top: 20px;
+          a {
+            color: white;
+            text-decoration: underline;
+          }
+        }
+    }
+  }
+}
+
+.main_posts_div {
+  width: calc(100% - 640px);
+  margin-left: 300px;
+  height: 100vh;
+  background-color: #0a0a0a;
+  position: fixed;
+  top: 90px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; 
+  border-right: 1px solid rgb(73, 73, 73);
+  
+} 
+
+.main_posts_div::-webkit-scrollbar {
+  display: none; 
+}
+
+.post_div:last-child,.news_block:last-child {
+  margin-bottom: 100px;
+}
+
+.right_bar_div {
+  position: fixed;
+  width: 339px;
+  background-color: #0a0a0a;
+  height: 100vh;  
+  right: 0px;
+  top: 90px;
+}
+
+::-webkit-scrollbar {
+  width: 3px; 
+  height: 8px; 
+}
+
+
+::-webkit-scrollbar-track {
+  background: #727272;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.post_div {
+  display: flex;
+  align-items: center;
+  
+  flex-direction: column;
+  width: 70%;
+  margin: auto;
+  background-color: #060606;
+  margin-top: 10px;
+  .text_div {
+    margin-left: 10px;
+  }
+  img {
+    width:96%;
+    margin-top: 10px;
+    height: 40%;
+  }
+  p {
+    color: #ccc;
+    font-size: 14px;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+  h1 {
+    font-weight: 500;
+    margin-top: 10px;
+  }
+  
+  .buttons_div_post {
+    margin: 20px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    margin-left: 20px;
+    gap: 10px;
+    button {
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+      background-color: black;
+      border: none;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0.7;
+      cursor: pointer;
+    }
+    button:hover {
+      transition: all 500ms ease;
+      opacity: 1;
+    }
+  }
+}
+
+
+.radius_div_scrool {
+  width: 70px;
+  height: 70px;
+  background-color: white;
+}
+
+
+.div_news {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  .news_block {
+    cursor: pointer;
+    padding: 10px 10px;
+    opacity: 0.9;
+    position: relative;
+    width: 95%;
+    height: 170px;
+    background-color: black;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    img {
+      height: auto;
+      width: 300px;
+      object-fit: cover;
+    }
+    .date_div {
+      position: absolute;
+      width: 150px;
+      height: 40px;
+      background-color:rgb(11, 11, 11);
+      top: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .text_div {
+      margin-left: 10px;
+    }
+    p {
+      color: #ccc;
+      margin-top: 5px;
+      width:96%;    
+  }
+
+    .first_col_div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      h4 {
+        margin-right: 40px;
+        margin-top:5px;
+        color: #ccc;
+        font-weight: 300;
+      }
+    }
+  }
+  .news_block:hover {
+    opacity: 1;
+    transition: all 200ms ease;
+  }
+}
+
+.radius_div {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.radius_div:hover{
+ outline: 4px solid rgb(50, 50, 50); 
+}
+
+.user_profile_div {
+  display: flex;
+  gap: 15px;
+}
+
+.button_write_post {
+  width: 150px;
+  cursor: pointer;
+  opacity: 0.7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background-color:#010101;
+  transition: all 200ms ease;
+}
+
+.button_write_post:hover {
+  outline: 4px solid rgb(50, 50, 50); 
+
+}
+
+.verify_div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    border-radius: 10px;
+    height: 300px;
+    text-align: left;
+    background-color: #060606;
+    h1 {
+      font-size: 25px;
+      margin-top: 30px;
+      margin-right: 100px;
+    }
+    h3 {
+      margin-top: 20px;
+      margin-right: 30px;
+      margin-left: 43px;
+      font-weight: 400;
+      color: #ccc;
+      font-size: 15px;
+    }
+    
+    .otp_inputs_div {
+      display: flex;
+      justify-content: center;
+      gap: 9px;
+      margin-top: 20px;
+      input {
+        width: 40px;
+        height: 50px; 
+        border-radius: 10px;
+        border: 1px solid rgb(70, 70, 70);
+        background-color: #0a0a0a;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+      }
+      input:focus-visible {
+        outline: none;
+        box-shadow: 0px 0px 5px 0px rgba(255,255,255,1);
+      }
+
+    }
+    button {
+      width: 150px;
+      height: 500px;
+      margin-bottom: 40px;
+      margin-right: 140px;
+      border-radius: 10px;
+      border: none;
+      background-color: black;
+      color: white;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: all 300ms ease;
+    }
+    button:hover {
+      opacity: 1;
+    }
+  
+  }
+}
