@@ -21,7 +21,7 @@ export const NavBar = () => {
           <li>
             <Link to='/'>
               <button className='bg'>
-                <img src="../../public/images/posts_icon.svg" alt="Posts Icon" /> Պոստեր
+                <img src="images/posts_icon.svg" alt="Posts Icon" /> Պոստեր
               </button>
             </Link>
           </li>
