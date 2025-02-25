@@ -1,7 +1,7 @@
 // userSlice.ts
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const API_URL = "http://localhost:5000/api/user"; 
+const API_URL = "https://amproger-backend.onrender.com/api/user"; 
 
 interface User {
   id: string;
