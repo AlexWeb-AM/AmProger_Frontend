@@ -6,7 +6,7 @@ export const Header = () => {
         <header className='header'>
             <div className="container">
                 <div className='logo_div'>
-                    <img src="public/images/logo.svg" alt="" />
+                    <img src="images/logo.svg" alt="" />
                 </div>
                 <div className='search_div'>
                     <form>
