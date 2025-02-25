@@ -23,7 +23,7 @@ export const Header_user = () => {
     <header className='header'>
       <div className='container'>
         <div className="logo_div">
-          <img src="../../public/images/logo.svg" alt="Logo" />
+          <img src="images/logo.svg" alt="Logo" />
         </div>
         <div className='search_div'>
           <form>

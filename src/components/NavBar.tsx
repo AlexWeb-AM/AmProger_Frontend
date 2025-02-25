@@ -27,22 +27,22 @@ export const NavBar = () => {
           </li>
           <li>
             <button onClick={() => { setDivMessage(true); }}>
-              <img src="../../public/images/news_icon.svg" alt="News Icon" /> Նորություններ
+              <img src="images/news_icon.svg" alt="News Icon" /> Նորություններ
             </button>
           </li>
           <li>
             <button onClick={() => { setDivMessage(true); }}>
-              <img src="../../public/images/mozg.svg" alt="Quiz Icon" /> Վիկտորինաներ
+              <img src="images/mozg.svg" alt="Quiz Icon" /> Վիկտորինաներ
             </button>
           </li>
           <li>
             <button onClick={() => { setDivMessage(true); }}>
-              <img src="../../public/images/compaines.svg" alt="Companies Icon" /> Ընկերություններ
+              <img src="images/compaines.svg" alt="Companies Icon" /> Ընկերություններ
             </button>
           </li>
           <li>
             <button onClick={() => { setDivMessage(true); }}>
-              <img src="../../public/images/calendar.svg" alt="Events Icon" /> Իրադարձություններ
+              <img src="images/calendar.svg" alt="Events Icon" /> Իրադարձություններ
             </button>
           </li>
           <li></li>
