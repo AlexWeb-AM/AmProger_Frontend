@@ -1,5 +1,4 @@
-import React from 'react'
-import { Header } from '../components/Header'
+
 import { NavBarLogined } from '../components/NavBarLogined'
 import { Main_News } from '../components/Main_News'
 import { Right_Bar } from '../components/Right_Bar'

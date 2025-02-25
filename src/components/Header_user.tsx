@@ -5,7 +5,7 @@ import { getUser } from '../slices/userSlice';
 
 export const Header_user = () => {
   const dispatch = useDispatch<AppDispatch>(); 
-  const { user, loading, error } = useSelector((state: RootState) => state.user);
+  const { user, loading } = useSelector((state: RootState) => state.user);
 
   useEffect(() => {
     if (!user && !loading) {

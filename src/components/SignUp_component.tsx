@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 export const SignUpComponent = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { isLoading, error } = useSelector((state: RootState) => state.auth); 
+  const { isLoading } = useSelector((state: RootState) => state.auth); 
   const navigate = useNavigate();
 
   const [name, setName] = useState<string>("");

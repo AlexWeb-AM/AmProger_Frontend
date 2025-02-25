@@ -1,4 +1,3 @@
-import React from 'react'
 import { LoginComponent } from '../components/Login_component'
 
 export const Login = () => {

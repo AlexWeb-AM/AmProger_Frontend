@@ -1,4 +1,3 @@
-import React from 'react'
 import {VerifyEmailComponent }from '../components/VerfiyEmailComponent'
 
 export const VerifyEmail = () => {

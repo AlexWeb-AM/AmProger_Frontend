@@ -1,6 +1,5 @@
 import  { useState, useEffect } from 'react';
-import { FaTelegram } from 'react-icons/fa';
-import { FaXTwitter } from 'react-icons/fa6';
+
 import { Link } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
