@@ -2,12 +2,16 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const API_URL = "https://amproger-backend.onrender.com/api/user"; 
+const API_URL_LOCAL = 'http://localhost:5000/api/user'
 
 interface User {
   id: string;
   name: string;
   email: string;
-  routeId:string
+  routeId:string;
+  posts:number;
+  likes:number;
+  savePosts:string[];
 }
 
 interface UserState {
@@ -29,7 +33,7 @@ export const getUser = createAsyncThunk('user/getUser', async (_, thunkAPI) => {
       throw new Error('Email not found in localStorage');
     }
 
-    const response = await fetch(`${API_URL}/get-user`, {
+    const response = await fetch(`${API_URL_LOCAL}/get-user`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

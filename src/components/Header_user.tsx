@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../store/store'; 
 import { useEffect } from 'react';
 import { getUser } from '../slices/userSlice';
+import { Link } from 'react-router';
 
 export const Header_user = () => {
   const dispatch = useDispatch<AppDispatch>(); 
@@ -18,12 +19,13 @@ export const Header_user = () => {
     const initials = nameParts.map(part => part.charAt(0).toUpperCase()).join('');
     return initials;
   };
+  
 
   return (
     <header className='header'>
       <div className='container'>
         <div className="logo_div">
-          <img src="images/logo.svg" alt="Logo" />
+          <img src="/images/logo.svg" alt="Logo" />
         </div>
         <div className='search_div'>
           <form>
@@ -34,9 +36,10 @@ export const Header_user = () => {
           <div className="button_write_post">
             Գրել պոստ
           </div>
-          <div className="radius_div">
+          <Link to={`/user/${localStorage.getItem("routeId")}/profile`}><div className="radius_div">
             {user && getInitials(user.name)}
           </div>
+          </Link>
         </div>
       </div>
     </header>

@@ -24,6 +24,7 @@ export const LoginComponent = () => {
       const response = await dispatch(loginUser({ email, password })).unwrap();
       toast.success("Login successful");
       localStorage.setItem("userEmail", email);
+      localStorage.setItem("routeId",response.user.routeId)
       navigate(`/user/${response.user.routeId}/posts`);
     } catch (err: any) {
       toast.error(err?.message || "Login failed");
@@ -49,7 +50,7 @@ export const LoginComponent = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit" disabled={isLoading}>
-          Մոտք
+          Մուտք
         </button>
       </form>
       <h4>

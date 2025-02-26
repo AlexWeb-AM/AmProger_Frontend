@@ -1,13 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const API_URL = "https://amproger-backend.onrender.com/api/auth"; 
+const API_URL = "https://amproger-backend.onrender.com/api/auth";
+const API_URL_LOCAL = 'http://localhost:5000/api/auth'
 
 interface User {
   id: string;
   name: string;
   email: string;
-  routeId:string
+  routeId: string
 }
 
 interface UserState {
@@ -23,14 +24,14 @@ const initialState: UserState = {
 };
 
 export const loginUser = createAsyncThunk<
-  { user: User }, 
+  { user: User },
   { email: string; password: string },
   { rejectValue: string }
 >(
   "auth/login",
   async (userData, { rejectWithValue }) => {
     try {
-      const response = await axios.post(`${API_URL}/login`, userData);
+      const response = await axios.post(`${API_URL_LOCAL}/login`, userData);
       return response.data;
     } catch (error: any) {
       console.error("Error Login:", error);
@@ -40,14 +41,14 @@ export const loginUser = createAsyncThunk<
 );
 
 export const registerUser = createAsyncThunk<
-  { user: User }, 
+  { user: User },
   { name: string; email: string; password: string },
   { rejectValue: string }
 >(
   "auth/register",
   async (userData, { rejectWithValue }) => {
     try {
-      const response = await axios.post(`${API_URL}/register`, userData);
+      const response = await axios.post(`${API_URL_LOCAL}/register`, userData);
       return response.data;
     } catch (error: any) {
       console.error("Error SignUp:", error);
@@ -64,7 +65,7 @@ export const verifyEmail = createAsyncThunk<
   "auth/verifyEmail",
   async ({ email, otp }, { rejectWithValue }) => {
     try {
-      const response = await axios.post(`${API_URL}/verify-email`, { email, otp });
+      const response = await axios.post(`${API_URL_LOCAL}/verify-email`, { email, otp });
       return response.data;
     } catch (error: any) {
       console.error("Error verification email:", error);
@@ -72,14 +73,31 @@ export const verifyEmail = createAsyncThunk<
     }
   }
 );
+export const logoutUser = createAsyncThunk<
+  void,
+  void,
+  { rejectValue: string }
+>(
+  "auth/logout",
+  async (_, { rejectWithValue }) => {
+    try {
+      localStorage.removeItem("token");
+      sessionStorage.removeItem("token");
+
+
+      await axios.post(`${API_URL_LOCAL}/logout`);
+    } catch (error: any) {
+      console.error("Error logout:", error);
+      return rejectWithValue(error.response?.data?.message || "Error Logout");
+    }
+  }
+);
+
 
 const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    logout(state) {
-      state.user = null;
-    },
     clearError(state) {
       state.error = null;
     },
@@ -93,7 +111,10 @@ const authSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = action.payload.user;
+
+        localStorage.setItem("token", action.payload.token)
       })
+
       .addCase(loginUser.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload as string;
@@ -121,9 +142,12 @@ const authSlice = createSlice({
       .addCase(verifyEmail.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload as string;
-      });
+      })
+      .addCase(logoutUser.fulfilled, (state) => {
+        state.user = null;
+      })
   },
 });
 
-export const { logout, clearError } = authSlice.actions;
+export const { clearError } = authSlice.actions;
 export default authSlice.reducer;
