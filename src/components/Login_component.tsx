@@ -31,30 +31,32 @@ export const LoginComponent = () => {
     }
   };
 
+  
+
   return (
     <div className="login_div">
-      <h2>Մուտք</h2>
+      <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="email"
           required
-          placeholder="Էլ․Հասցե"
+          placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
           required
-          placeholder="Գաղտնաբառ"
+          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit" disabled={isLoading}>
-          Մուտք
+          Login
         </button>
       </form>
       <h4>
-        Դեռ չունեք հաշիվ? <Link to="/signup">Sign up</Link>
+      Don't have an account yet? <Link to="/signup">Sign up</Link>
       </h4>
     </div>
   );

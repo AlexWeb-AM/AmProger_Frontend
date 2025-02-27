@@ -1,13 +1,15 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../store/store'; 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getUser } from '../slices/userSlice';
+import { LuBookmark} from 'react-icons/lu';
+import { Settings,LogOut } from 'lucide-react'
 import { Link } from 'react-router';
 
 export const Header_user = () => {
   const dispatch = useDispatch<AppDispatch>(); 
   const { user, loading } = useSelector((state: RootState) => state.user);
-
+  const [menu,setMenu] = useState<boolean>(false)
   useEffect(() => {
     if (!user && !loading) {
       dispatch(getUser()); 
@@ -20,6 +22,7 @@ export const Header_user = () => {
     return initials;
   };
   
+  
 
   return (
     <header className='header'>
@@ -29,19 +32,27 @@ export const Header_user = () => {
         </div>
         <div className='search_div'>
           <form>
-            <input placeholder='Փնտրել' type="text" />
+            <input placeholder='Search' type="text" />
           </form>
         </div>
         <div className="user_profile_div">
+          <Link to={`/user/${user?.routeId}/create-post`}>
           <div className="button_write_post">
-            Գրել պոստ
-          </div>
-          <Link to={`/user/${localStorage.getItem("routeId")}/profile`}><div className="radius_div">
-            {user && getInitials(user.name)}
+            Create Post
           </div>
           </Link>
+          <div onClick={() => {setMenu(!menu)}} className="radius_div">
+            {user && getInitials(user.name)}
+          </div>
         </div>
       </div>
+      {menu && (<div className='menu_div'>
+        <Link to={`/user/${user?.routeId}/saved`}><button><LuBookmark className='icon_menu' /> Saved</button></Link>
+        <Link to={`/user/${user?.routeId}/user_posts`}><button><img src='/images/posts_icon_light.svg' className='img_menu' /> Posts</button></Link>
+        <Link to={`/user/${user?.routeId}/settings`}><button><Settings className='icon_menu' />Settings</button></Link>
+        <Link to={`/user/${user?.routeId}/logout`}><button><LogOut className='icon_menu' />Logout</button></Link>
+
+      </div>)}
     </header>
   );
 };

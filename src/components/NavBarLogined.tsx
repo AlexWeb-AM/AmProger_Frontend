@@ -49,8 +49,6 @@ export const NavBarLogined = () => {
     }
   }, [location]);
 
-  console.log(user)
-
   const routeId = user?.routeId
   
 
@@ -61,35 +59,35 @@ export const NavBarLogined = () => {
           <li>
             <Link to={`/user/${routeId}/posts`}>
               <button className={activeTab === 'posts' ? 'bg' : ''}>
-                <img src="../../public/images/posts_icon.svg" alt="Posts Icon" /> Պոստեր
+                <img src="../../public/images/posts_icon.svg" alt="Posts Icon" /> Posts
               </button>
             </Link>
           </li>
           <li>
             <Link to={`/user/${routeId}/news`}>
               <button className={activeTab === 'news' ? 'bg' : ''}>
-                <img src="../../public/images/news_icon.svg" alt="News Icon" /> Նորություններ
+                <img src="../../public/images/news_icon.svg" alt="News Icon" /> News
               </button>
             </Link>
           </li>
           <li>
             <Link to={`/user/${routeId}/quiz`}>
               <button className={activeTab === 'quiz' ? 'bg' : ''}>
-                <img src="../../public/images/mozg.svg" alt="Quiz Icon" /> Վիկտորինաներ
+                <img src="../../public/images/mozg.svg" alt="Quiz Icon" /> Quizzes
               </button>
             </Link>
           </li>
           <li>
             <Link to={`/user/${routeId}/companies`}>
               <button className={activeTab === 'companies' ? 'bg' : ''}>
-                <img src="../../public/images/compaines.svg" alt="Companies Icon" /> Ընկերություններ
+                <img src="../../public/images/compaines.svg" alt="Companies Icon" />Companies
               </button>
             </Link>
           </li>
           <li>
             <Link to={`/user/${routeId}/events`}>
               <button className={activeTab === 'events' ? 'bg' : ''}>
-                <img src="../../public/images/calendar.svg" alt="Events Icon" /> Իրադարձություններ
+                <img src="../../public/images/calendar.svg" alt="Events Icon" /> Events
               </button>
             </Link>
           </li>

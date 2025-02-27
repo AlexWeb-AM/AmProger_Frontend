@@ -66,7 +66,7 @@ export const SignUpComponent = () => {
 
     try {
       await dispatch(registerUser({ name, email, password })).unwrap();
-      toast.success("Հաջողությամբ գրանցվեց");
+      toast.success("Successfully Signed");
 
       setName("");
       setEmail("");
@@ -78,7 +78,7 @@ export const SignUpComponent = () => {
       navigate("/verify-email");
     } catch (err: any) {
       if (err?.response?.status === 400) {
-        toast.error("Այդ էլ․ փոստը արդեն գրանցված է");
+        toast.error("That e-mail mail is already registered");
       } else {
         toast.error(err?.message || "Սխալ");
       }
@@ -92,37 +92,37 @@ export const SignUpComponent = () => {
         <input
           type="text"
           required
-          placeholder="Անուն Ազգանուն"
+          placeholder="Full Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <input
           type="email"
           required
-          placeholder="Gmail"
+          placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
           required
-          placeholder="Գաղտնաբառ"
+          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         <input
           type="password"
           required
-          placeholder="Կրկնել Գաղտնաբառը"
+          placeholder="Retry Password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
         <button type="submit" disabled={isLoading}>
-          {isLoading ? "Բեռնում..." : "Գրանցվել"}
+          Sign Up
         </button>
       </form>
       <h4>
-        Արդեն գրանցված եք? <Link to="/login">Մուտք</Link>
+      Already registered? <Link to="/login">Login</Link>
       </h4>
     </div>
   );

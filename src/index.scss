@@ -15,7 +15,7 @@ a {
 
 body {
   background-color: #0d0d0d;
-  font-family: "Noto Sans Armenian", sans-serif;
+  font-family: "Poppins", sans-serif;
   color: white;
 }
 
@@ -267,6 +267,7 @@ a {
   display: flex;
   flex-direction: column;
   overflow-y: auto; 
+  
   border-right: 1px solid rgb(73, 73, 73);
   
 } 
@@ -697,3 +698,38 @@ a {
 
   
 }
+
+.menu_div {
+  position: absolute;
+  width: 200px;
+  height: 220px;
+  background-color: black;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 80px;
+  button {
+    width: 100%;
+    height: 50px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  button:hover {
+    background-color: #1c1c1c;
+    cursor: pointer;
+  }
+  .icon_menu {
+    font-size: 26px;
+  }
+  .img_menu {
+    width: 30px;
+  }
+}
+

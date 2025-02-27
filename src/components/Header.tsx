@@ -10,12 +10,12 @@ export const Header = () => {
                 </div>
                 <div className='search_div'>
                     <form>
-                        <input placeholder='Փնտրել' type="text" />
+                        <input placeholder='Search' type="text" />
                     </form>
                 </div>
                 <div className='buttons_div'>
-                    <Link to='/signup' ><button className='button1'>Գրանցվել</button></Link>
-                    <Link to='/login' ><button className='button2'>Մուտք</button></Link>
+                    <Link to='/signup' ><button className='button1'>Sign Up</button></Link>
+                    <Link to='/login' ><button className='button2'>Login</button></Link>
                 </div>
             </div>
         </header>

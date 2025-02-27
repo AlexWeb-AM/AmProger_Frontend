@@ -9,7 +9,7 @@ export const NavBar = () => {
 
   useEffect(() => {
     if (divMessage) {
-      toast.info('Message Displayed!', { position: 'top-right' });
+      toast.info('First Login to your account', { position: 'top-right' });
       setDivMessage(false); 
     }
   }, [divMessage]);
@@ -21,28 +21,28 @@ export const NavBar = () => {
           <li>
             <Link to='/'>
               <button className='bg'>
-                <img src="images/posts_icon.svg" alt="Posts Icon" /> Պոստեր
+                <img src="images/posts_icon.svg" alt="Posts Icon" /> Posts
               </button>
             </Link>
           </li>
           <li>
             <button onClick={() => { setDivMessage(true); }}>
-              <img src="images/news_icon.svg" alt="News Icon" /> Նորություններ
+              <img src="images/news_icon.svg" alt="News Icon" /> News
             </button>
           </li>
           <li>
             <button onClick={() => { setDivMessage(true); }}>
-              <img src="images/mozg.svg" alt="Quiz Icon" /> Վիկտորինաներ
+              <img src="images/mozg.svg" alt="Quiz Icon" /> Quizzes
             </button>
           </li>
           <li>
             <button onClick={() => { setDivMessage(true); }}>
-              <img src="images/compaines.svg" alt="Companies Icon" /> Ընկերություններ
+              <img src="images/compaines.svg" alt="Companies Icon" /> Companies
             </button>
           </li>
           <li>
             <button onClick={() => { setDivMessage(true); }}>
-              <img src="images/calendar.svg" alt="Events Icon" /> Իրադարձություններ
+              <img src="images/calendar.svg" alt="Events Icon" /> Events
             </button>
           </li>
           <li></li>

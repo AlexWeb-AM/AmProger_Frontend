@@ -7,7 +7,7 @@ import { News } from './pages/News'
 import { ToastContainer } from 'react-toastify' 
 import { UserPage } from './pages/UserPage'
 import { VerifyEmail } from './pages/VerifyEmail'
-import { UserProfile } from './pages/UserProfile'
+import { CreatePostPage } from './pages/CreatePostPage'
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
           <Route path='/user/:id/news' element={<News />} />
           <Route path="/user/:id/posts" element={<UserPage />} />
           <Route path='/verify-email' element={<VerifyEmail />} />
-          <Route path='/user/:id/profile' element={<UserProfile />} />
+          <Route path='/user/:id/create-post' element={<CreatePostPage />} />
         </Routes>
       </>
     </Router>
