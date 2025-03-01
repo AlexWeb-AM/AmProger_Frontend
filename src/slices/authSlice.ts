@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const API_URL = "https://amproger-backend.onrender.com/api/auth";
-const API_URL_LOCAL = 'http://localhost:5000/api/auth'
+const API_URL_LOCAL = 'http://localhost:5001/api/auth'
 
 interface User {
   id: string;
@@ -85,8 +85,7 @@ export const logoutUser = createAsyncThunk<
       sessionStorage.removeItem("token");
 
 
-      await axios.post(`${API_URL_LOCAL}/logout`);
-    } catch (error: any) {
+      await axios.post(`${API_URL_LOCAL}/logout`, {}, { withCredentials: true });    } catch (error: any) {
       console.error("Error logout:", error);
       return rejectWithValue(error.response?.data?.message || "Error Logout");
     }

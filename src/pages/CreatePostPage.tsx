@@ -1,5 +1,9 @@
+import { CreatePost } from "../components/CreatePost"
+
 export const CreatePostPage = () => {
   return (
-    <div>createPost</div>
+    <div>
+      <CreatePost />
+    </div>
   )
 }
